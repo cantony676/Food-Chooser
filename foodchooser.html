@@ -1,0 +1,98 @@
+<html>
+    <head>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Itim&family=Lobster&display=swap" rel="stylesheet">
+      <style>
+      body{
+        background-color: #3F0D12;
+        text-align:center;
+      }
+      #message{
+        font-size: 40px;
+      }
+      h1{
+        font-size: 60px;
+        font-family: 'Itim', cursive;
+        color: #F1F0CC;
+      }
+      button{
+        background-color: #0F084B;
+        color: white;
+        font-size: 15px;
+      }
+      p{
+color: #D5BF86;
+font-family: 'Lobster', cursive;
+      }
+      .cool{
+width: 150px;
+height: 150px;
+      }
+      #textstuffs{
+        visibility: hidden;
+      }
+      table{
+        margin: auto;
+      }
+      </style>
+      <script>
+         function ageCheck()
+         {
+            var age = document.getElementById("byear").value;
+            age = parseInt(age);
+            age = 2021-age;
+            if(age<=0 || age>200){
+              document.getElementById('textstuffs').style.visibility= "visible";
+              if (age<0){
+                age=age/-1;
+              }
+              document.getElementById('message').innerHTML = "You're negative " + age + " years old right now! What up time traveller? Also, might want to try another decade.";
+            }
+            else if(age<10){
+              document.getElementById('textstuffs').style.visibility= "visible";
+              document.getElementById('plipper').innerHTML = "So, you're gonna be a big kid soon. What should you eat?";
+              document.getElementById('pic1').innerHTML = "<img src='kid1.jpg' alt='mcdonalds happy meal' onclick='printNo()' width='200' height='200'></img>";
+              document.getElementById('pic2').innerHTML = "<img src='kid3.jpg' alt='apples' onclick='printYes()' width='200' height='200'></img>";
+              document.getElementById('pic3').innerHTML = "<img src='kid2.jpeg' alt='chicken nuggets' onclick='printNo()' width='200' height='200'></img>";
+            }
+            else{
+              document.getElementById('textstuffs').style.visibility= "visible";
+              document.getElementById('plipper').innerHTML = "What should you eat to not die early?";
+              document.getElementById('pic1').innerHTML = "<img src='old1.jpg' alt='pizza' onclick='printNo()' width='200' height='200'></img>";
+              document.getElementById('pic2').innerHTML = "<img src='old2.jpg' alt='donut' onclick='printNo()' width='200' height='200'></img>";
+              document.getElementById('pic3').innerHTML = "<img src='old3.jpg' alt='salad' onclick='printYes()' width='200' height='200'></img>";
+            }
+                //Remember I am looking for some error checking.
+         }
+         function printYes()
+         {
+           document.getElementById("message").innerHTML="Tasty and healthy!";
+         }
+         function printNo()
+         {
+           document.getElementById("message").innerHTML="Tastes good, not healthy though. Try again..."
+         }
+      </script>
+
+    </head>
+
+    <body>
+       <h1>Food Chooser</h1>
+       <p>Can you pick the healthy meal?</p>
+       <input type = "text" value = "Type Birth Year" id = "byear">
+       <input type = "button" value = "Submit"  id = "sButton"  onclick = "ageCheck()">
+       <table>
+         <tr>
+           <p id="plipper"></p>
+           <td id ="pic1" class = "cool"> </td>
+           <td id ="pic2" class = "cool"> </td>
+           <td id ="pic3" class = "cool"> </td>
+         </tr>
+      </table>
+      <div id="textstuffs">
+       <hr>
+       <p id = "message"></p><!--Yes or No Message gets sent here-->
+       <hr>
+     </div>
+    </body>
+</html>
